@@ -1,1 +1,4 @@
 .virtualenv
+*.pyc
+*.swp
+muzej/muzej.sqlite3
