@@ -2,6 +2,76 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+class Lokacija(models.Model):
+	ime = models.CharField(
+			max_length=255)
+
+	naslov = models.TextField(blank=True)
+
+	def __unicode__(self):
+		return self.ime
+
+	class Meta:
+		verbose_name_plural = "Lokacije"
+
+class Oseba(models.Model):
+	ime = models.CharField(
+			max_length=255)
+
+	naslov = models.TextField(blank=True)
+
+	telefon = models.CharField(max_length=255, blank=True)
+
+	email = models.EmailField(blank=True, null=True)
+
+	def __unicode__(self):
+		return self.ime
+
+	class Meta:
+		verbose_name_plural = "Osebe"
+
+class Vhod(models.Model):
+
+	izrocitelj = models.ForeignKey(Oseba, null=True, 
+			related_name="izrocitelj",
+			verbose_name="izročitelj",
+			help_text="kdo je prinesel eksponat (če ni lastnik)")
+
+	lastnik = models.ForeignKey(Oseba, 
+			related_name="lastnik",
+			help_text="kdo je trenutno lastnik eksponata")
+
+	opis = models.TextField(
+			help_text="kratek opis izročenih predmetov, stanje, vidne poškodbe, "
+			"zgodovina predmeta")
+
+	RAZLOG_CHOICES = (
+			('dar', 'dar'),
+			('izposoja', 'izposoja'),
+	)
+
+	zacasna_lokacija = models.ForeignKey(Lokacija,
+			verbose_name="začasna lokacija",
+			blank=True, null=True)
+
+	razlog = models.CharField(choices=RAZLOG_CHOICES, max_length=255,
+			help_text="razlog za sprejem eksponata")
+
+	dogovorjeni_datum_vrnitve = models.DateField(blank=True, null=True)
+	datum_vrnitve = models.DateField(blank=True, null=True,
+			help_text="datum dejanske vrnitve")
+
+	opombe = models.TextField(blank=True,
+			help_text="podrobnosti glede vrnitve")
+
+	prevzel = models.ForeignKey(User,
+			help_text="sodelavec muzeja, ki je prevzel eksponat")
+
+	cas_prevzema = models.DateTimeField(verbose_name="čas prevzema")
+
+	class Meta:
+		verbose_name_plural = "Vhodi"
+
 class Kategorija(models.Model):
 	ime = models.CharField(
 			max_length=255)
@@ -61,26 +131,6 @@ class Eksponat(models.Model):
 	class Meta:
 		verbose_name_plural = "Eksponati"
 
-class Donator(models.Model):
-	ime = models.CharField(
-			max_length=255)
-
-	def __unicode__(self):
-		return self.ime
-
-	class Meta:
-		verbose_name_plural = "Donatorji"
-
-class Lokacija(models.Model):
-	ime = models.CharField(
-			max_length=255)
-
-	def __unicode__(self):
-		return self.ime
-
-	class Meta:
-		verbose_name_plural = "Lokacije"
-
 class Primerek(models.Model):
 	inventarna_st = models.PositiveIntegerField(
 			primary_key=True,
@@ -96,7 +146,7 @@ class Primerek(models.Model):
 
 	stanje = models.TextField(blank=True)
 
-	donator = models.ForeignKey(Donator, blank=True, null=True)
+	donator = models.ForeignKey(Oseba, blank=True, null=True)
 
 	lokacija = models.ForeignKey(Lokacija)
 
