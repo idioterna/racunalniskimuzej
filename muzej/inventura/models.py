@@ -34,7 +34,7 @@ class Oseba(models.Model):
 
 class Vhod(models.Model):
 
-	izrocitelj = models.ForeignKey(Oseba, null=True, 
+	izrocitelj = models.ForeignKey(Oseba, blank=True, null=True, 
 			related_name="izrocitelj",
 			verbose_name="izročitelj",
 			help_text="kdo je prinesel eksponat (če ni lastnik)")
@@ -70,6 +70,12 @@ class Vhod(models.Model):
 			help_text="sodelavec muzeja, ki je prevzel eksponat")
 
 	cas_prevzema = models.DateTimeField(verbose_name="čas prevzema")
+
+	def stevilka(self):
+		return "VH%05d" % (self.id,)
+
+	def get_absolute_url(self):
+		return "/vhod/%d/" % (self.id,)
 
 	class Meta:
 		verbose_name_plural = "Vhodi"

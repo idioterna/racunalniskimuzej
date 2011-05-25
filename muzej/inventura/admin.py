@@ -19,7 +19,7 @@ class PrimerekAdmin(admin.ModelAdmin):
 	list_display = ('inventarna_st', 'eksponat', 'serijska_st')
 
 class VhodAdmin(admin.ModelAdmin):
-	list_display = ('id',)
+	list_display = ('stevilka', 'lastnik', 'razlog', 'prevzel', 'cas_prevzema')
 
 	fieldsets = (
 			(None, {
