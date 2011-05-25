@@ -52,12 +52,12 @@ class Vhod(models.Model):
 			('izposoja', 'izposoja'),
 	)
 
+	razlog = models.CharField(choices=RAZLOG_CHOICES, max_length=255,
+			help_text="razlog za sprejem eksponata")
+
 	zacasna_lokacija = models.ForeignKey(Lokacija,
 			verbose_name="začasna lokacija",
 			blank=True, null=True)
-
-	razlog = models.CharField(choices=RAZLOG_CHOICES, max_length=255,
-			help_text="razlog za sprejem eksponata")
 
 	dogovorjeni_datum_vrnitve = models.DateField(blank=True, null=True)
 	datum_vrnitve = models.DateField(blank=True, null=True,
@@ -69,7 +69,7 @@ class Vhod(models.Model):
 	prevzel = models.ForeignKey(User,
 			help_text="sodelavec muzeja, ki je prevzel eksponat")
 
-	cas_prevzema = models.DateTimeField(verbose_name="čas prevzema")
+	cas_prevzema = models.DateTimeField(verbose_name="čas prevzema", blank=True, null=True)
 
 	def stevilka(self):
 		return "VH%05d" % (self.id,)

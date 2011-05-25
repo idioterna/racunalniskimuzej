@@ -1,0 +1,167 @@
+<html>
+<head>
+	<title>Računalniški muzej - vhodni dokument {{ vhod.stevilka }}</title>
+	<style type="text/css">
+		table {
+			width: 100%;
+			border-collapse: collapse;
+			border: solid 1px #000;
+		}
+		th {
+			font-size: small;
+			font-weight: normal;
+			font-family: sans-serif;
+			text-align: left;
+		}
+		th.razdelek {
+			border-right: solid 1px #000;
+		}
+		tr.podrazdelek {
+			border-top: solid 3px #000;
+		}
+		td {
+			border-bottom: solid 1px #000;
+			height: 0.7cm;
+			padding-left: 0.2cm;
+			font-weight: bold;
+			font-family: serif;
+			font-size: medium;
+		}
+		td.dolg {
+			font-size: small;
+			font-weight: normal;
+		}
+		td.opis {
+			font-size: small;
+			font-weight: bold;
+			vertical-align: top;
+			height: 4.2cm;
+		}
+		td.opombe {
+			font-size: small;
+			font-weight: bold;
+			vertical-align: top;
+			height: 2.8cm;
+		}
+		img {
+			float: right;
+		}
+		p {
+			font-size: small;
+		}
+	</style>
+</head>
+<body>
+	<img src="https://chart.googleapis.com/chart?chs=100x100&cht=qr&chld=L|1&chl=HTTP://RACUNALNISKI-MUZEJ.SI/V/{{ vhod.id }}"/>
+	<h1>{{ vhod.stevilka }}</h1>
+	<p>Računalniški muzej<br/>
+	<a href="http://www.racunalniski-muzej.si">http://www.racunalniski-muzej.si</a>
+	</p>
+	<table>
+		<tr>
+			<th class="razdelek" rowspan="8">Lastništvo</td>
+			<th colspan=2">Izročitelj</th>
+			<th>Telefon</th>
+		</tr>
+		<tr>
+			<td colspan="2">{{ vhod.izrocitelj.ime }}</td>
+			<td>{{ vhod.izrocitelj.telefon }}</td>
+		</tr>
+		<tr>
+			<th colspan="2">Naslov</th>
+			<th>E-mail</th>
+		</tr>
+		<tr>
+			<td colspan="2">{{ vhod.izrocitelj.naslov }}</td>
+			<td>{{ vhod.izrocitelj.email }}</td>
+		</tr>
+
+		<tr class="podrazdelek">
+			<th colspan="2">Lastnik</th>
+			<th>Telefon</th>
+		</tr>
+		<tr>
+			<td colspan="2">{{ vhod.lastnik.ime }}</td>
+			<td>{{ vhod.lastnik.telefon }}</td>
+		</tr>
+		<tr>
+			<th colspan="2">Naslov</th>
+			<th>E-mail</th>
+		</tr>
+		<tr>
+			<td colspan="2">{{ vhod.lastnik.naslov }}</td>
+			<td>{{ vhod.lastnik.email }}</td>
+		</tr>
+		
+
+		<tr class="podrazdelek">
+			<th class="razdelek" rowspan="2">Podatki o<br/>gradivu</th>
+			<th colspan="3">Kratek opis in zgodovina gradiva</th>
+		</tr>
+		<tr>
+			<td colspan="3" class="opis">{{ vhod.opis }}</td>
+		</tr>
+
+		<tr class="podrazdelek">
+			<th class="razdelek" rowspan="8">Vhod</th>
+			<th>Razlog</th>
+			<th>Vrniti</th>
+			<th>Dogovorjeni datum vrnitve</th>
+		</tr>
+		<tr>
+			<td>{{ vhod.razlog }}</td>
+			<td>{% if vhod.razlog == "izposoja" %}da{% else %}ne{% endif %}</td>
+			<td>{% if vhod.razlog == "izposoja" %}{{ vhod.dogovorjeni_datum_vrnitve }}{% else %}-{% endif %}</td>
+		</tr>
+
+		<tr>
+			<th colspan="3">Opombe</th>
+		</tr>
+		<tr>
+			<td colspan="3" class="opombe">{{ vhod.opombe }}</td>
+		</tr>
+
+		<tr>
+			<td rowspan="2" class="dolg"><b>Izročitelj</b>: potrjujem, da so podatki na tem obrazcu pravilni.</td>
+			<th>Podpis</th>
+			<th>Datum</th>
+		</tr>
+		<tr>
+			<td></td>
+			<td>{{ vhod.cas_prevzema|default:"" }}</td>
+		</tr>
+
+		<tr>
+			<td rowspan="2" class="dolg"><b>{{ vhod.prevzel.get_full_name }}</b>: v imenu muzeja potrjujem sprejem zgoraj opisane skupine predmetov.</td>
+			<th>Podpis</th>
+			<th>Datum</th>
+		</tr>
+		<tr>
+			<td></td>
+			<td>{{ vhod.cas_prevzema|default:"" }}</td>
+		</tr>
+
+		<tr class="podrazdelek">
+			<th class="razdelek" rowspan="4">Prevzem</th>
+			<th>Začasna lokacija</th>
+			<th></th>
+			<th></th>
+		</tr>
+		<tr>
+			<td>{{ vhod.zacasna_lokacija|default:"" }}</td>
+			<td></td>
+			<td></td>
+		</tr>
+
+		<tr>
+			<td rowspan="2" class="dolg">Potrjujem prejem zgoraj opisane skupine predmetov.</td>
+			<th>Podpis</th>
+			<th>Datum</th>
+		</tr>
+		<tr>
+			<td></td>
+			<td>{{ vhod.datum_vrnitve|default:"" }}</td>
+		</tr>
+	</table>
+</body>
+</html>
