@@ -148,17 +148,24 @@ class Primerek(models.Model):
 			max_length=255, blank=True,
 			verbose_name="Serijska številka")
 
-	inventariziral = models.ForeignKey(User)
+	inventariziral = models.ForeignKey(
+			User,
+			help_text="kdo je iz vhodnega dokumenta naredil kataloški vnos")
 
 	datum_inventarizacije = models.DateTimeField(auto_now_add=True)
 
 	stanje = models.TextField(blank=True)
 
-	donator = models.ForeignKey(Oseba, blank=True, null=True)
+	donator = models.ForeignKey(
+			Oseba, 
+			blank=True,
+			null=True,
+			help_text="kdo je primerek podaril muzeju")
 
 	lokacija = models.ForeignKey(Lokacija)
 
-	eksponat = models.ForeignKey(Eksponat)
+	eksponat = models.ForeignKey(Eksponat, blank=True, null=True,
+			help_text="pusti prazno, če gre za muzejsko opremo in ne eksponat")
 
 	def __unicode__(self):
 		return unicode(self.inventarna_st)
