@@ -129,7 +129,10 @@ class Eksponat(models.Model):
 	sirina_cm = models.PositiveIntegerField(
 			verbose_name="Širina [cm]")
 
-	opis = models.TextField()
+	opis = models.TextField(
+			help_text="splošni opis izdelka, ki ga eksponat predstavlja, "
+			"in se ne nanaša na specifični primerek (naj vsebuje najmanj "
+			"fizični opis, po katerem je mogoče razpoznati eksponat)")
 
 	kategorija = models.ForeignKey(Kategorija)
 
@@ -147,7 +150,8 @@ class Primerek(models.Model):
 	st_delov = models.PositiveIntegerField(
 			default=1,
 			verbose_name="Število delov",
-			help_text="iz koliko delov je sestavljen primerek (vsak del ima svojo nalepko z inventarno št. in št. dela - npr. 12345/6)")
+			help_text="iz koliko delov je sestavljen primerek (vsak del ima "
+			"svojo nalepko z inventarno št. in št. dela - npr. 12345/6)")
 
 	serijska_st = models.CharField(
 			max_length=255, blank=True,
@@ -159,7 +163,10 @@ class Primerek(models.Model):
 
 	datum_inventarizacije = models.DateTimeField(auto_now_add=True)
 
-	stanje = models.TextField(blank=True)
+	stanje = models.TextField(
+			blank=True,
+			help_text="opis stanja (poškodbe, posebnosti, spremembe) in "
+			"ostale opombe, specifične za ta primerek")
 
 	donator = models.ForeignKey(
 			Oseba, 
