@@ -144,6 +144,11 @@ class Primerek(models.Model):
 			primary_key=True,
 			verbose_name="Inventarna številka")
 
+	st_delov = models.PositiveIntegerField(
+			default=1,
+			verbose_name="Število delov",
+			help_text="iz koliko delov je sestavljen primerek (vsak del ima svojo nalepko z inventarno št. in št. dela - npr. 12345/6)")
+
 	serijska_st = models.CharField(
 			max_length=255, blank=True,
 			verbose_name="Serijska številka")
