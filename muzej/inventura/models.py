@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.db import models
 from django.contrib.auth.models import User
-from muzej.inventura.validators import validate_ime
 
 class Lokacija(models.Model):
 	ime = models.CharField(
@@ -18,7 +17,7 @@ class Lokacija(models.Model):
 class Oseba(models.Model):
 	ime = models.CharField(
 			max_length=255,
-			validators=[validate_ime])
+			help_text="za fizične osebe uporabi obliko \"priimer, ime\"")
 
 	naslov = models.TextField(blank=True)
 
