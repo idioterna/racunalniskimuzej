@@ -17,7 +17,7 @@ class Lokacija(models.Model):
 class Oseba(models.Model):
 	ime = models.CharField(
 			max_length=255,
-			help_text="za fizične osebe uporabi obliko \"priimer, ime\"")
+			help_text="za fizične osebe uporabi obliko \"priimek, ime\"")
 
 	naslov = models.TextField(blank=True)
 
