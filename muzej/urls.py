@@ -9,7 +9,8 @@ urlpatterns = patterns('',
 	# url(r'^muzej/', include('muzej.foo.urls')),
 	
 	url(r'^vhod/([0-9]+)/', 'muzej.inventura.views.vhod'),
-	url(r'^V/([0-9]+)/?', 'muzej.inventura.views.vhod_short'),
+	url(r'^[vV]/([0-9]+)/?', 'muzej.inventura.views.vhod_short'),
+	url(r'^[iI]/([0-9]+)/?', 'muzej.inventura.views.primerek_short'),
 
 	# Uncomment the admin/doc line below to enable admin documentation:
 	# url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

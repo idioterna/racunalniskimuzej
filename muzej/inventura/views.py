@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 
-from muzej.inventura.models import Vhod
+from muzej.inventura.models import Vhod, Primerek
 
 def vhod(request, id):
 	vhod = Vhod.objects.get(pk=id)
@@ -12,3 +12,7 @@ def vhod(request, id):
 def vhod_short(request, id):
 	vhod = Vhod.objects.get(pk=id)
 	return redirect(vhod)
+
+def primerek_short(request, id):
+	primerek = Primerek.objects.get(pk=id)
+	return redirect(primerek)
