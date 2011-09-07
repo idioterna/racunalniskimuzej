@@ -1,0 +1,27 @@
+Kako narediš nalepke
+====================
+
+Za tisk inventarnih številk poženeš:
+
+  $ python nalepke.py [od]-[do] [poljubni labelnation parametri]
+
+kjer je [od]-[do] interval številk, ki jih želiš natisniti. 
+
+Na primer:
+
+  $ python nalepke.py 1-49 -p avery6009
+
+Za pomoc glede labelnation parametrov, zazeni
+
+  $ ./labelnation
+
+
+
+Tuja koda
+=========
+
+barcode.ps - http://code.google.com/p/postscriptbarcode/
+MIT License
+
+labelnation - http://www.red-bean.com/labelnation/
+GPL v2
