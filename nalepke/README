@@ -5,7 +5,9 @@ Za tisk inventarnih številk poženeš:
 
   $ python nalepke.py [od]-[do] [poljubni labelnation parametri]
 
-kjer je [od]-[do] interval številk, ki jih želiš natisniti. 
+kjer je [od]-[do] interval številk, ki jih želiš natisniti.
+
+Nalepke se izpisejo v PostScript datoteko nalepke.ps
 
 Na primer:
 
