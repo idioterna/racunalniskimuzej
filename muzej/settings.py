@@ -1,3 +1,5 @@
+import os
+
 # Django settings for muzej project.
 
 DEBUG = True
@@ -67,8 +69,11 @@ STATIC_URL = '/static/'
 # Examples: "http://foo.com/static/admin/", "/static/admin/".
 ADMIN_MEDIA_PREFIX = '/static/admin/'
 
+AUTOCOMPLETE_MEDIA_PREFIX = '/static/autocomplete/'
+
 # Additional locations of static files
 STATICFILES_DIRS = (
+    os.path.join(os.path.dirname(__file__), 'static'),
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.

@@ -2,11 +2,19 @@ import models
 from django.contrib import admin
 from django.contrib.auth.models import User
 
+from autocomplete.views import autocomplete, AutocompleteSettings
+from autocomplete.admin import AutocompleteAdmin
+
 class PrimerekInline(admin.StackedInline):
 	model = models.Primerek
 	extra = 1
 
-class EksponatAdmin(admin.ModelAdmin):
+class ProizvajalecAutocomplete(AutocompleteSettings):
+	search_fields = ('^ime',)
+
+autocomplete.register(models.Eksponat.proizvajalec, ProizvajalecAutocomplete)
+
+class EksponatAdmin(AutocompleteAdmin, admin.ModelAdmin):
 	inlines = [
 			PrimerekInline,
 	]
@@ -15,7 +23,12 @@ class EksponatAdmin(admin.ModelAdmin):
 
 	list_filter = ('proizvajalec',)
 
-class PrimerekAdmin(admin.ModelAdmin):
+class EksponatAutocomplete(AutocompleteSettings):
+	search_fields = ('^ime', 'tip')
+
+autocomplete.register(models.Primerek.eksponat, EksponatAutocomplete)
+
+class PrimerekAdmin(AutocompleteAdmin, admin.ModelAdmin):
 	list_display = ('inventarna_st', 'eksponat', 'serijska_st')
 
 class VhodAdmin(admin.ModelAdmin):
