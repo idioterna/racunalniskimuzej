@@ -7,7 +7,7 @@ import ajax_select.admin
 
 class PrimerekInline(admin.StackedInline):
 	model = models.Primerek
-	extra = 1
+	extra = 0
 
 class EksponatAdmin(ajax_select.admin.AjaxSelectAdmin):
 	inlines = [
