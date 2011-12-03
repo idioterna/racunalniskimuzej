@@ -2,19 +2,14 @@ import models
 from django.contrib import admin
 from django.contrib.auth.models import User
 
-from autocomplete.views import autocomplete, AutocompleteSettings
-from autocomplete.admin import AutocompleteAdmin
+import ajax_select
+import ajax_select.admin
 
 class PrimerekInline(admin.StackedInline):
 	model = models.Primerek
 	extra = 1
 
-class ProizvajalecAutocomplete(AutocompleteSettings):
-	search_fields = ('^ime',)
-
-autocomplete.register(models.Eksponat.proizvajalec, ProizvajalecAutocomplete)
-
-class EksponatAdmin(AutocompleteAdmin, admin.ModelAdmin):
+class EksponatAdmin(ajax_select.admin.AjaxSelectAdmin):
 	inlines = [
 			PrimerekInline,
 	]
@@ -23,14 +18,13 @@ class EksponatAdmin(AutocompleteAdmin, admin.ModelAdmin):
 
 	list_filter = ('proizvajalec',)
 
-class EksponatAutocomplete(AutocompleteSettings):
-	search_fields = ('^ime', 'tip')
+	form = ajax_select.make_ajax_form(models.Eksponat, {'proizvajalec':'proizvajalec'})
 
-autocomplete.register(models.Primerek.eksponat, EksponatAutocomplete)
-
-class PrimerekAdmin(AutocompleteAdmin, admin.ModelAdmin):
+class PrimerekAdmin(ajax_select.admin.AjaxSelectAdmin):
 	list_display = ('stevilka', 'eksponat', 'serijska_st')
 	readonly_fields = ('inventariziral', 'datum_inventarizacije')
+
+	form = ajax_select.make_ajax_form(models.Primerek, {'eksponat':'eksponat', 'donator':'oseba'})
 
 	def save_model(self, request, obj, form, change):
 		if not change:

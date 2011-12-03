@@ -105,7 +105,7 @@ class Proizvajalec(models.Model):
 	opis = models.TextField(blank=True)
 
 	def __unicode__(self):
-		return self.ime
+		return "%s, %s" % (self.ime, self.drzava)
 
 	class Meta:
 		verbose_name_plural = "Proizvajalci"
@@ -122,16 +122,16 @@ class Eksponat(models.Model):
 	leto_proizvodnje = models.PositiveIntegerField(blank=True, null=True)
 
 	visina_cm = models.PositiveIntegerField(
-			verbose_name="Višina [cm]")
+			verbose_name=u"Višina [cm]")
 	dolzina_cm = models.PositiveIntegerField(
-			verbose_name="Dolžina [cm]")
+			verbose_name=u"Dolžina [cm]")
 	sirina_cm = models.PositiveIntegerField(
-			verbose_name="Širina [cm]")
+			verbose_name=u"Širina [cm]")
 
 	opis = models.TextField(
-			help_text="splošni opis izdelka, ki ga eksponat predstavlja, "
-			"in se ne nanaša na specifični primerek (naj vsebuje najmanj "
-			"fizični opis, po katerem je mogoče razpoznati eksponat)")
+			help_text=u"splošni opis izdelka, ki ga eksponat predstavlja, "
+			u"in se ne nanaša na specifični primerek (naj vsebuje najmanj "
+			u"fizični opis, po katerem je mogoče razpoznati eksponat)")
 
 	kategorija = models.ForeignKey(Kategorija)
 
@@ -147,16 +147,16 @@ def get_default_lokacija():
 class Primerek(models.Model):
 	inventarna_st = models.PositiveIntegerField(
 			primary_key=True,
-			verbose_name="Inventarna številka")
+			verbose_name=u"Inventarna številka")
 
 	eksponat = models.ForeignKey(Eksponat, blank=True, null=True,
-			help_text="pusti prazno, če gre za muzejsko opremo in ne eksponat")
+			help_text=u"pusti prazno, če gre za muzejsko opremo in ne eksponat")
 
 	st_delov = models.PositiveIntegerField(
 			default=1,
-			verbose_name="Število delov",
-			help_text="iz koliko delov je sestavljen primerek (vsak del ima "
-			"svojo nalepko z inventarno št. in št. dela - npr. 12345/6)")
+			verbose_name=u"Število delov",
+			help_text=u"iz koliko delov je sestavljen primerek (vsak del ima "
+			u"svojo nalepko z inventarno št. in št. dela - npr. 12345/6)")
 
 	serijska_st = models.CharField(
 			max_length=255, blank=True,
@@ -164,20 +164,20 @@ class Primerek(models.Model):
 
 	inventariziral = models.ForeignKey(
 			User,
-			help_text="kdo je iz vhodnega dokumenta naredil kataloški vnos")
+			help_text=u"kdo je iz vhodnega dokumenta naredil kataloški vnos")
 
 	datum_inventarizacije = models.DateTimeField(auto_now_add=True)
 
 	stanje = models.TextField(
 			blank=True,
-			help_text="opis stanja (poškodbe, posebnosti, spremembe) in "
-			"ostale opombe, specifične za ta primerek")
+			help_text=u"opis stanja (poškodbe, posebnosti, spremembe) in "
+			u"ostale opombe, specifične za ta primerek")
 
 	donator = models.ForeignKey(
 			Oseba, 
 			blank=True,
 			null=True,
-			help_text="kdo je primerek podaril muzeju")
+			help_text=u"kdo je primerek podaril muzeju")
 
 	lokacija = models.ForeignKey(Lokacija, default=get_default_lokacija)
 

@@ -69,8 +69,6 @@ STATIC_URL = '/static/'
 # Examples: "http://foo.com/static/admin/", "/static/admin/".
 ADMIN_MEDIA_PREFIX = '/static/admin/'
 
-AUTOCOMPLETE_MEDIA_PREFIX = '/static/autocomplete/'
-
 # Additional locations of static files
 STATICFILES_DIRS = (
     os.path.join(os.path.dirname(__file__), 'static'),
@@ -124,7 +122,20 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'muzej.inventura',
+    'ajax_select',
 )
+
+# define the lookup channels in use on the site
+AJAX_LOOKUP_CHANNELS = {
+    # pass a dict with the model and the field to search against
+    'proizvajalec'  : {'model':'inventura.Proizvajalec', 'search_field':'ime'},
+    'eksponat'  : {'model':'inventura.Eksponat', 'search_field':'ime'},
+    'oseba'  : {'model':'inventura.Oseba', 'search_field':'ime'},
+}
+
+# magically include jqueryUI/js/css
+AJAX_SELECT_BOOTSTRAP = True
+AJAX_SELECT_INLINES = 'inline'
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
