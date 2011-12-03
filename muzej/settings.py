@@ -128,10 +128,9 @@ INSTALLED_APPS = (
 
 # define the lookup channels in use on the site
 AJAX_LOOKUP_CHANNELS = {
-    # pass a dict with the model and the field to search against
-    'proizvajalec'  : {'model':'inventura.Proizvajalec', 'search_field':'ime'},
-    'eksponat'  : {'model':'inventura.Eksponat', 'search_field':'ime'},
-    'oseba'  : {'model':'inventura.Oseba', 'search_field':'ime'},
+    'eksponat'  : ('inventura.lookups', 'EksponatLookup'),
+    'oseba'  : ('inventura.lookups', 'OsebaLookup'),
+    'proizvajalec'  : ('inventura.lookups', 'ProizvajalecLookup'),
 }
 
 AJAX_SELECT_INLINES = 'staticfiles'
