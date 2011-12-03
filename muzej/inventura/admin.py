@@ -14,14 +14,14 @@ class EksponatAdmin(ajax_select.admin.AjaxSelectAdmin):
 			PrimerekInline,
 	]
 
-	list_display = ('ime', 'tip', 'proizvajalec')
+	list_display = ('ime', 'tip', 'proizvajalec', 'st_primerkov')
 
 	list_filter = ('proizvajalec',)
 
 	form = ajax_select.make_ajax_form(models.Eksponat, {'proizvajalec':'proizvajalec'})
 
 class PrimerekAdmin(ajax_select.admin.AjaxSelectAdmin):
-	list_display = ('stevilka', 'eksponat', 'serijska_st')
+	list_display = ('stevilka', 'eksponat', 'serijska_st', 'leto_proizvodnje')
 	readonly_fields = ('inventariziral', 'datum_inventarizacije')
 
 	form = ajax_select.make_ajax_form(models.Primerek, {'eksponat':'eksponat', 'donator':'oseba'})

@@ -72,6 +72,7 @@ class Vhod(models.Model):
 
 	def stevilka(self):
 		return "VH%05d" % (self.id,)
+	stevilka.short_description = u'Številka'
 
 	def get_absolute_url(self):
 		return "/vhod/%d/" % (self.id,)
@@ -112,14 +113,14 @@ class Proizvajalec(models.Model):
 
 class Eksponat(models.Model):
 	ime = models.CharField(
-			max_length=255)
+			max_length=255,
+			help_text=u"obče izdelka, ki ga eksponat predstavlja")
 
 	tip = models.CharField(
-			max_length=255)
+			max_length=255,
+			help_text=u"tovarniška oznaka, številka tipa")
 
 	proizvajalec = models.ForeignKey(Proizvajalec)
-
-	leto_proizvodnje = models.PositiveIntegerField(blank=True, null=True)
 
 	visina_cm = models.PositiveIntegerField(
 			verbose_name=u"Višina [cm]")
@@ -134,6 +135,10 @@ class Eksponat(models.Model):
 			u"fizični opis, po katerem je mogoče razpoznati eksponat)")
 
 	kategorija = models.ForeignKey(Kategorija)
+
+	def st_primerkov(self):
+		return "%d" % Primerek.objects.filter(eksponat=self).count()
+	st_primerkov.short_description = u'Št primerkov'
 
 	def __unicode__(self):
 		return self.ime
@@ -162,6 +167,8 @@ class Primerek(models.Model):
 			max_length=255, blank=True,
 			verbose_name="Serijska številka")
 
+	leto_proizvodnje = models.PositiveIntegerField(blank=True, null=True)
+
 	inventariziral = models.ForeignKey(
 			User,
 			help_text=u"kdo je iz vhodnega dokumenta naredil kataloški vnos")
@@ -183,6 +190,7 @@ class Primerek(models.Model):
 
 	def stevilka(self):
 		return "IN%05d" % (self.inventarna_st,)
+	stevilka.short_description = u'Številka'
 
 	def __unicode__(self):
 		return unicode(self.inventarna_st)
