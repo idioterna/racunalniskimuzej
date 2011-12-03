@@ -180,6 +180,10 @@ class Primerek(models.Model):
 			help_text=u"opis stanja (poškodbe, posebnosti, spremembe) in "
 			u"ostale opombe, specifične za ta primerek")
 
+	zgodovina = models.TextField(
+			blank=True,
+			help_text=u"zgodovina primerka (zakaj se je uporabljal, kdo in kdaj)")
+
 	donator = models.ForeignKey(
 			Oseba, 
 			blank=True,
@@ -187,6 +191,8 @@ class Primerek(models.Model):
 			help_text=u"kdo je primerek podaril muzeju")
 
 	lokacija = models.ForeignKey(Lokacija, default=get_default_lokacija)
+
+	vhodni_dokument = models.ForeignKey(Vhod, blank=True, null=True)
 
 	def stevilka(self):
 		return "IN%05d" % (self.inventarna_st,)
