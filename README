@@ -1,0 +1,12 @@
+Kako postaviš inventuro
+=======================
+
+$ git clone http://www.tablix.org/~avian/git/racunalniskimuzej.git
+$ cd racunalniskimuzej
+
+$ virtualenv .virtualenv
+$ source .virtualenv/bin/activate
+$ pip install -r requirements
+
+$ cd muzej
+$ python manage.py syncdb
