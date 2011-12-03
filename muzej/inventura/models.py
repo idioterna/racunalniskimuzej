@@ -146,6 +146,9 @@ class Primerek(models.Model):
 			primary_key=True,
 			verbose_name="Inventarna številka")
 
+	eksponat = models.ForeignKey(Eksponat, blank=True, null=True,
+			help_text="pusti prazno, če gre za muzejsko opremo in ne eksponat")
+
 	st_delov = models.PositiveIntegerField(
 			default=1,
 			verbose_name="Število delov",
@@ -174,9 +177,6 @@ class Primerek(models.Model):
 			help_text="kdo je primerek podaril muzeju")
 
 	lokacija = models.ForeignKey(Lokacija)
-
-	eksponat = models.ForeignKey(Eksponat, blank=True, null=True,
-			help_text="pusti prazno, če gre za muzejsko opremo in ne eksponat")
 
 	def __unicode__(self):
 		return unicode(self.inventarna_st)
