@@ -1,0 +1,98 @@
+[
+    {
+        "pk": 1, 
+        "model": "inventura.kategorija", 
+        "fields": {
+            "ime": "Ra\u010dunalnik", 
+            "opis": "Del z centralno procesno enoto. \u010ce gre za sistem, ki ima ve\u010d delov, potem v to kategorijo spada enota z procesorjem (npr. desktop ohi\u0161je z motherboardom pri PCju). Sem spadajo tudi ra\u010dunalniki v \u0161ir\u0161rem smislu, kjer je na primer monitor, tipkovnica in procesna enota v enem kosu, na primer laptopi in kalkulatorji."
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "inventura.kategorija", 
+        "fields": {
+            "ime": "Monitor", 
+            "opis": "CRT, LCD in ostali monitorji, ki nimajo lokalnih procesnih zmogljivosti. Terminali imajo svojo kategorijo, ravno tako ra\u010dunalniki, z vgrajenim monitorjem (npr. iMac)."
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "inventura.kategorija", 
+        "fields": {
+            "ime": "Vnosna naprava", 
+            "opis": "Sem spadajo tipkovnice, mi\u0161ke, igralne palice, svetlobna peresa in podobno."
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "inventura.kategorija", 
+        "fields": {
+            "ime": "Nosilec podatkov", 
+            "opis": "Nosilec podatkov. Na primer disketa, CD, magnetni trak."
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "inventura.kategorija", 
+        "fields": {
+            "ime": "Terminal", 
+            "opis": "Sem spadajo serijski in ostali terminali (VT100, ...), ki niso samostojno uporabni brez mainframe ra\u010dunalnika ali podobne procesne enote, in se uporabljajo za daljinski dostop do ra\u010dunalnika. Ni nujno, da za prikaz uporabljajo CRT. Lahko je tudi teleprinter."
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "inventura.kategorija", 
+        "fields": {
+            "ime": "Komponenta", 
+            "opis": "Sestavni del ra\u010dunalnika, ki se bele\u017ei kot svoj eksponati in ne spada v ostale kategorije (vnosne naprave, podatkovni pogoni. itd.). Na primer mikroprocesor, raz\u0161iritvena plo\u0161\u010da, stikalna plo\u0161\u010da analognega ra\u010dunalnika, itd."
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "inventura.kategorija", 
+        "fields": {
+            "ime": "Tiskalnik", 
+            "opis": "Naprava za izpis na papir."
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "inventura.kategorija", 
+        "fields": {
+            "ime": "Podatkovni pogon", 
+            "opis": "Enota za shranjevanje podatkov na notranje ali zunanje nosilce. Na primer tra\u010dni pogon, diskovni pogon, luknjalec kartic, magnetofon, itd."
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "inventura.kategorija", 
+        "fields": {
+            "ime": "Ostalo", 
+            "opis": "Kar ne spada v ostale kategorije."
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "inventura.kategorija", 
+        "fields": {
+            "ime": "Tiskovina", 
+            "opis": "Knjige, plakati, itd."
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "inventura.lokacija", 
+        "fields": {
+            "naslov": "Kersnikova 4\r\n1000 Ljubljana", 
+            "ime": "Kiberpipa"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "inventura.lokacija", 
+        "fields": {
+            "naslov": "Tr\u017ea\u0161ka cesta 135\r\n1000 Ljubljana", 
+            "ime": "Skladi\u0161\u010de Lesnina, Vi\u010d"
+        }
+    }
+]
