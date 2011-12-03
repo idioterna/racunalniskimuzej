@@ -141,6 +141,9 @@ class Eksponat(models.Model):
 	class Meta:
 		verbose_name_plural = "Eksponati"
 
+def get_default_lokacija():
+	return Lokacija.objects.get(ime="Skladišče Lesnina, Vič")
+
 class Primerek(models.Model):
 	inventarna_st = models.PositiveIntegerField(
 			primary_key=True,
@@ -176,7 +179,10 @@ class Primerek(models.Model):
 			null=True,
 			help_text="kdo je primerek podaril muzeju")
 
-	lokacija = models.ForeignKey(Lokacija)
+	lokacija = models.ForeignKey(Lokacija, default=get_default_lokacija)
+
+	def stevilka(self):
+		return "IN%05d" % (self.inventarna_st,)
 
 	def __unicode__(self):
 		return unicode(self.inventarna_st)

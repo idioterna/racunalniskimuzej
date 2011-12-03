@@ -29,7 +29,13 @@ class EksponatAutocomplete(AutocompleteSettings):
 autocomplete.register(models.Primerek.eksponat, EksponatAutocomplete)
 
 class PrimerekAdmin(AutocompleteAdmin, admin.ModelAdmin):
-	list_display = ('inventarna_st', 'eksponat', 'serijska_st')
+	list_display = ('stevilka', 'eksponat', 'serijska_st')
+	readonly_fields = ('inventariziral', 'datum_inventarizacije')
+
+	def save_model(self, request, obj, form, change):
+		if not change:
+			obj.inventariziral = request.user
+		obj.save()
 
 class VhodAdmin(admin.ModelAdmin):
 	list_display = ('stevilka', 'lastnik', 'razlog', 'prevzel', 'cas_prevzema')
