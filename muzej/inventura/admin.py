@@ -14,7 +14,7 @@ class EksponatAdmin(ajax_select.admin.AjaxSelectAdmin):
 			PrimerekInline,
 	]
 
-	list_display = ('ime', 'tip', 'proizvajalec', 'st_primerkov')
+	list_display = ('ime', 'tip', 'proizvajalec', 'leto_proizvodnje', 'st_primerkov')
 
 	list_filter = ('proizvajalec',)
 

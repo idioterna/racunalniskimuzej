@@ -140,8 +140,21 @@ class Eksponat(models.Model):
 
 	kategorija = models.ForeignKey(Kategorija)
 
+	def leto_proizvodnje(self):
+		agg = self.primerek_set.aggregate(
+				models.Min("leto_proizvodnje"), 
+				models.Max("leto_proizvodnje"))
+
+		leto_min = agg['leto_proizvodnje__min']
+		leto_max = agg['leto_proizvodnje__max']
+
+		if leto_min == leto_max:
+			return str(leto_min)
+		else:
+			return "%d - %d" % (leto_min, leto_max) 
+
 	def st_primerkov(self):
-		return "%d" % Primerek.objects.filter(eksponat=self).count()
+		return "%d" % self.primerek_set.count()
 	st_primerkov.short_description = u'Št primerkov'
 
 	def __unicode__(self):
