@@ -14,6 +14,9 @@ class Lokacija(models.Model):
 	class Meta:
 		verbose_name_plural = "Lokacije"
 
+def get_default_lokacija():
+	return Lokacija.objects.get(ime="Skladišče Lesnina, Vič")
+
 class Oseba(models.Model):
 	ime = models.CharField(
 			max_length=255,
@@ -35,16 +38,16 @@ class Vhod(models.Model):
 
 	izrocitelj = models.ForeignKey(Oseba, blank=True, null=True, 
 			related_name="izrocitelj",
-			verbose_name="izročitelj",
-			help_text="kdo je prinesel eksponat (če ni lastnik)")
+			verbose_name=u"izročitelj",
+			help_text=u"kdo je prinesel eksponat (če ni lastnik)")
 
 	lastnik = models.ForeignKey(Oseba, 
 			related_name="lastnik",
 			help_text="kdo je trenutno lastnik eksponata")
 
 	opis = models.TextField(
-			help_text="kratek opis izročenih predmetov, stanje, vidne poškodbe, "
-			"zgodovina predmeta")
+			help_text=u"kratek opis izročenih predmetov, stanje, vidne poškodbe, "
+			u"zgodovina predmeta")
 
 	RAZLOG_CHOICES = (
 			('dar', 'dar'),
@@ -56,6 +59,7 @@ class Vhod(models.Model):
 
 	zacasna_lokacija = models.ForeignKey(Lokacija,
 			verbose_name="začasna lokacija",
+			default=get_default_lokacija,
 			blank=True, null=True)
 
 	dogovorjeni_datum_vrnitve = models.DateField(blank=True, null=True)
@@ -145,9 +149,6 @@ class Eksponat(models.Model):
 
 	class Meta:
 		verbose_name_plural = "Eksponati"
-
-def get_default_lokacija():
-	return Lokacija.objects.get(ime="Skladišče Lesnina, Vič")
 
 class Primerek(models.Model):
 	inventarna_st = models.PositiveIntegerField(

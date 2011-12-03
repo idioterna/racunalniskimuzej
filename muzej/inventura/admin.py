@@ -31,8 +31,11 @@ class PrimerekAdmin(ajax_select.admin.AjaxSelectAdmin):
 			obj.inventariziral = request.user
 		obj.save()
 
-class VhodAdmin(admin.ModelAdmin):
+class VhodAdmin(ajax_select.admin.AjaxSelectAdmin):
 	list_display = ('stevilka', 'lastnik', 'razlog', 'prevzel', 'cas_prevzema')
+
+	form = ajax_select.make_ajax_form(models.Vhod, {
+		'izrocitelj':'oseba', 'lastnik':'oseba'})
 
 	fieldsets = (
 			(None, {
