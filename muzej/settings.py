@@ -106,6 +106,7 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'muzej.urls'
 
 TEMPLATE_DIRS = (
+    os.path.join(os.path.dirname(__file__), 'templates'),
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -133,9 +134,7 @@ AJAX_LOOKUP_CHANNELS = {
     'oseba'  : {'model':'inventura.Oseba', 'search_field':'ime'},
 }
 
-# magically include jqueryUI/js/css
-AJAX_SELECT_BOOTSTRAP = True
-AJAX_SELECT_INLINES = 'inline'
+AJAX_SELECT_INLINES = 'staticfiles'
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to

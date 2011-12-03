@@ -1,0 +1,9 @@
+{% extends "admin/change_form.html" %}
+
+{% block extrahead %}{{ block.super }}
+<script>
+jQuery=django.jQuery;
+</script>
+<script type="text/javascript" src="/static/ajax_select/js/jquery-ui.min.js"></script>
+<link type="text/css" rel="stylesheet" href="/static/ajax_select/css/smoothness/jquery-ui-1.8.16.custom.css"/>
+{% endblock %}
