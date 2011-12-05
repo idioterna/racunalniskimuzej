@@ -11,16 +11,18 @@ def write_label(outf, invst):
 	ps = """9 8 moveto (%(url)s) (eclevel=L width=0.6 height=0.6) /qrcode /uk.co.terryburton.bwipp findresource exec
 newpath
 ISOArial 10 scalefont setfont
-60.000000 42.000000 moveto
-(Ra) show
+60.000000 44.000000 moveto
+(ra) show
 /ccaron glyphshow
 (unalni) show
 /scaron glyphshow
 (ki) show
-60.000000 32.000000 moveto
+ISOArialBold 10 scalefont setfont
+60.000000 34.000000 moveto
 (muzej) show
+ISOArial 10 scalefont setfont
 60.000000 9.000000 moveto
-(Inv. ) show
+(inv. ) show
 /scaron glyphshow
 (t. %(invst)04d) show
 stroke

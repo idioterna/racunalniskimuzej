@@ -928,6 +928,8 @@ def make_labels(spec, infile, input_type, delimiter, outfile,
   set_up_iso8859(output)
   output.write("/ISO%s ISO-8859-1Encoding /%s reencode_font\n"
                % (spec.font_name, spec.font_name))
+  output.write("/ISO%sBold ISO-8859-1Encoding /%s-bold reencode_font\n"
+               % (spec.font_name, spec.font_name))
 
   # Set up subroutines
   clipfunc = make_clipping_func(spec.label_height, spec.label_width,
