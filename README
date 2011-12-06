@@ -10,3 +10,5 @@ $ pip install -r requirements
 
 $ cd muzej
 $ python manage.py syncdb
+
+For deployment, link static/admin to admin media dir in virtualenv.
