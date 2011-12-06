@@ -215,9 +215,6 @@ class Primerek(models.Model):
 	def __unicode__(self):
 		return unicode(self.inventarna_st)
 
-	def get_absolute_url(self):
-		return "/admin/inventura/primerek/%d/" % (self.pk,)
-
 	class Meta:
 		verbose_name_plural = "Primerki"
 
