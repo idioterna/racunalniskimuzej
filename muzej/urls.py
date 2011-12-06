@@ -10,6 +10,7 @@ urlpatterns = patterns('',
 	# url(r'^$', 'muzej.views.home', name='home'),
 	# url(r'^muzej/', include('muzej.foo.urls')),
 	
+	url(r'^$', 'muzej.inventura.views.root'),
 	url(r'^vhod/([0-9]+)/', 'muzej.inventura.views.vhod'),
 	url(r'^[vV]/([0-9]+)/?', 'muzej.inventura.views.vhod_short'),
 	url(r'^[iI]/([0-9]+)/?', 'muzej.inventura.views.primerek_short'),

@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect
 
 from muzej.inventura.models import Vhod, Primerek
 
+def root(request):
+	return redirect('/admin/')
+
 def vhod(request, id):
 	vhod = Vhod.objects.get(pk=id)
 	context = {
