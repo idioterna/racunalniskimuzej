@@ -122,9 +122,10 @@ class Eksponat(models.Model):
 
 	tip = models.CharField(
 			max_length=255,
+			blank=True, null=True,
 			help_text=u"tovarniška oznaka, številka tipa")
 
-	proizvajalec = models.ForeignKey(Proizvajalec)
+	proizvajalec = models.ForeignKey(Proizvajalec, blank=True, null=True)
 
 	visina_cm = models.PositiveIntegerField(
 			verbose_name=u"Višina [cm]")
