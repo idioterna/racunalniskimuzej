@@ -137,7 +137,9 @@ class Eksponat(models.Model):
 	opis = models.TextField(
 			help_text=u"splošni opis izdelka, ki ga eksponat predstavlja, "
 			u"in se ne nanaša na specifični primerek (naj vsebuje najmanj "
-			u"fizični opis, po katerem je mogoče razpoznati eksponat)")
+			u"fizični opis, po katerem je mogoče razpoznati eksponat: "
+			"oblika, barva, ali je vgrajena tipkovnica, monitor, disketna "
+			"enota, itd.)")
 
 	kategorija = models.ForeignKey(Kategorija)
 
