@@ -25,8 +25,12 @@ class EksponatAdmin(ajax_select.admin.AjaxSelectAdmin):
 class OsebaAdmin(admin.ModelAdmin):
 	search_fields = ('ime',)
 
+class ProizvajalecAdmin(admin.ModelAdmin):
+	list_filter = ('drzava',)
+
 class PrimerekAdmin(ajax_select.admin.AjaxSelectAdmin):
 	list_display = ('stevilka', 'eksponat', 'serijska_st', 'leto_proizvodnje')
+	list_filter = ('lokacija',)
 	readonly_fields = ('inventariziral', 'datum_inventarizacije')
 
 	form = ajax_select.make_ajax_form(models.Primerek, {'eksponat':'eksponat', 'donator':'oseba'})
@@ -55,7 +59,7 @@ class VhodAdmin(ajax_select.admin.AjaxSelectAdmin):
 		)
 
 admin.site.register(models.Kategorija)
-admin.site.register(models.Proizvajalec)
+admin.site.register(models.Proizvajalec, ProizvajalecAdmin)
 admin.site.register(models.Eksponat, EksponatAdmin)
 admin.site.register(models.Oseba, OsebaAdmin)
 admin.site.register(models.Vhod, VhodAdmin)
