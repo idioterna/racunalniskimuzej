@@ -212,7 +212,7 @@ class Primerek(models.Model):
 	vhodni_dokument = models.ForeignKey(Vhod, blank=True, null=True)
 
 	def stevilka(self):
-		return "IN%05d" % (self.inventarna_st,)
+		return "%04d" % (self.inventarna_st,)
 	stevilka.short_description = u'Številka'
 
 	def __unicode__(self):
