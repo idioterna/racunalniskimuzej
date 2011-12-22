@@ -12,3 +12,127 @@ $ cd muzej
 $ python manage.py syncdb
 
 For deployment, link static/admin to admin media dir in virtualenv.
+
+
+TODO
+====
+
+- Država naj bo ForeignKey. Fixture s spiskom držav.
+
+
+
+Navodila za popisovanje
+=======================
+
+PRINESI S SEBOJ:
+
+laptop + polnilec, internet, haljo, tračni meter, krpo ali robec, pole s
+inventarnimi številkami, ključe od skladišča.
+
+
+KAJ POPISUJEMO:
+
+Trenutno popisujemo samo sisteme oziroma računalnike. Periferijo, kot so
+monitorji, tipkovnice, printerji itd. se ignorira (razen če je zavita v
+folijo skupaj z nekim računalnikom oziroma z njim skupaj v škatli ali se
+ga kako drugače fizično drži - v tem primeru glej spodaj).
+
+Ravno tako se trenutno ne ukvarjamo s tiskovinami in programjem na
+disketah, itd.
+
+Pri popisovanju imajo prednost eksponati, ki še niso zaviti v folijo.
+Manjši imajo prednost pred večjimi.
+
+Že popisani eksponati se nahajo zaviti v folijo na kupu v prvem regalu (gledano z vhoda) na spodnji polici.
+
+
+KAKO:
+
+Vzameš računalnik in nanj nalepiš inventarno nalepko. Če je eksponat iz
+večih delov, jo nalepi na osrednji del. Izogibaj se pokrovom in lahko
+odstranljivim delom. 
+
+Eksponati so prašni, tako da mesto za nalepko prej pobriši z krpo ali
+robcem. Mesto mora biti suho, čisto in gladko (na groba plastična ohišja se
+ne prime dobro).
+
+Najboljše mesto je ob tovarniški nalepki s serijsko številko. Z nalepko ne
+prekrij ničesar pomembnega (druge nalepke, vijaki, itd.).
+
+Če ni dobrega mesta za nalepko, raje vzemi drug eksponat
+in bomo inventarno številko dali gor drugače.
+
+
+Vsak popisovalec naj ima svoj računalnik, kjer je prijavljen v sistem s
+svojim uporabniškim imenom.
+
+Aplikacija podpira šumnike, tako da je pri opisih zaželjena pravilna
+slovenščina.
+
+
+Začneš na Inventura -> Primerki -> Add.
+
+
+Vpiši inventarno številko, ki si jo nalepil.
+
+Eksponat: polje ima autocomplete. Poišči ustrezni že obstoječi eksponat, če
+je kakšen računalnik tega tipa že v bazi, ali klikni "add" in glej spodaj.
+
+Število delov: v primeru, da se osnovnega dela eksponata z inventarno
+številko držijo še dodatni deli, tukaj vpiši število delov.
+
+Serijska številka in leto proizvodnje: vpiši, če je znano.
+
+Stanje: vnesi morebitne posebnosti tega primerka, ki se ne tičejo
+eksponata. npr. "na sprednji strani velika rdeča nalepka", "pokrov zlomljen
+in se ne zapira dobro", "pobarvan na zlato".
+
+Če ima primerek več delov, vpiši, kaj ti deli so.
+
+Donator: če se slučajno po spomniš, kdo je doniral nekaj, dodaj
+donatorja, drugače pusti prazno. Nekateri eksponati imajo nalepljene liste
+z opombami, od kje izvirajo.
+
+"Save and add another"
+
+Zavij eksponat v folijo in ga daj k že popisanim.
+
+
+Polja v Eksponatu:
+
+Ime: ime, pod katerim je ta eksponat na splošno znan. Ponavadi z veliko
+začetnico.
+
+Tip: Formalna tovarniška oznaka. Model number, product number, itd. Če ni
+znan oziroma če je ista kot ime, lahko pustiš prazno.
+
+Včasih je dvoumno, kdaj narediti svoj eksponat in kdaj dati več tovarniških
+modelov pod enega. Vodilo naj bo zunanji izgled. Na primer, vse PS/1
+enakega zunanjega izgleda sem dal v en eksponat, čeprav se modeli
+razlikujejo zaradi različnih konfiguracij (v tem primeru sodi številka
+konfiguracije pod opis primerka). Po drugi strani sta Performa 400 in LC II
+dva različna eksponata, ker se jasno razlikujeta po napisu na prednji
+strani, pa čeprav sta po konfiguraciji skoraj identična računalnika.
+
+Proizvajalec: poišči že obstoječega ali dodaj novega proizvajalca.
+
+Dimenzije: vnesi približne dimenzije. natančnost +/- nekaj centimetrov
+popolnoma zadostuje v tej fazi. Pomembno je, da je mogoče ločiti omaro od
+majhnega prenosnika.
+
+Opis: stavek ali dva, ki naj vsebuje fizični opis eksponata. Najboljše si
+je predstavljati, kakšne podatke potrebuješ, da eksponat najlažje najdeš v
+skladišču: oblika, barva, ali je vgrajen monitor in tipkovnica ali ne, so
+na prvi pogled od zunaj vidne kakšne disketne enote, očitna stikala,
+napisi, lučke, itd. Primer: "manjši črn računalnik z vgrajeno zeleno gumijasto
+tipkovnico in mavrico v spodnjem desnem kotu" ali pa "bel računalnik v
+debelejšem, ležečem namiznem ohišju z vgrajeno disketno enoto spredaj".
+
+Kategorija: računalnik, oziroma kaj drugega. Opis, kaj spada v posamezno
+kategorijo, lahko najdeš pod Inventura -> Kategorija.
+
+
+Hvala, ker si si vzel/a čas in prebral/a do konca. Uspešno vpisovanje!
+
+Kakršnekoli ideje, kako izboljšati ali poenostaviti proces so seveda
+dobrodošle.
