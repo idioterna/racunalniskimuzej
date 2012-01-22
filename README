@@ -19,6 +19,7 @@ TODO
 
 - Država naj bo ForeignKey. Fixture s spiskom držav.
 
+- Dodaj ime proizvajalca pred tip
 
 
 Navodila za popisovanje
@@ -116,6 +117,11 @@ razlikujejo zaradi različnih konfiguracij (v tem primeru sodi številka
 konfiguracije pod opis primerka). Po drugi strani sta Performa 400 in LC II
 dva različna eksponata, ker se jasno razlikujeta po napisu na prednji
 strani, pa čeprav sta po konfiguraciji skoraj identična računalnika.
+
+Ime eksponata naj bo ravno tako izbrano tako, da je dovolj specifično za
+izgled modela in dovolj splošno, da ne zajame različnih konfiguracij. Na
+primer "IBM ThinkPad" je preveč splošno, ker se pod tem imenom skriva
+veliko, na videz zelo različnih modelov.
 
 Proizvajalec: poišči že obstoječega ali dodaj novega proizvajalca.
 
