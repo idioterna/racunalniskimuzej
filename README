@@ -40,26 +40,26 @@ ga kako drugače fizično drži - v tem primeru glej spodaj).
 Ravno tako se trenutno ne ukvarjamo s tiskovinami in programjem na
 disketah, itd.
 
-Pri popisovanju imajo prednost eksponati, ki še niso zaviti v folijo.
+Pri popisovanju imajo prednost primerki, ki še niso zaviti v folijo.
 Manjši imajo prednost pred večjimi.
 
-Že popisani eksponati se nahajo zaviti v folijo na kupu v prvem regalu (gledano z vhoda) na spodnji polici.
+Že popisani primerki se nahajo zaviti v folijo na kupu v prvem regalu (gledano z vhoda) na spodnji polici.
 
 
 KAKO:
 
-Vzameš računalnik in nanj nalepiš inventarno nalepko. Če je eksponat iz
+Vzameš računalnik in nanj nalepiš inventarno nalepko. Če je primerek iz
 večih delov, jo nalepi na osrednji del. Izogibaj se pokrovom in lahko
 odstranljivim delom. 
 
-Eksponati so prašni, tako da mesto za nalepko prej pobriši z krpo ali
+Primerki so prašni, tako da mesto za nalepko prej pobriši z krpo ali
 robcem. Mesto mora biti suho, čisto in gladko (na groba plastična ohišja se
 ne prime dobro).
 
 Najboljše mesto je ob tovarniški nalepki s serijsko številko. Z nalepko ne
 prekrij ničesar pomembnega (druge nalepke, vijaki, itd.).
 
-Če ni dobrega mesta za nalepko, raje vzemi drug eksponat
+Če ni dobrega mesta za nalepko, raje vzemi drug primerek
 in bomo inventarno številko dali gor drugače.
 
 
@@ -67,7 +67,8 @@ Vsak popisovalec naj ima svoj računalnik, kjer je prijavljen v sistem s
 svojim uporabniškim imenom.
 
 Aplikacija podpira šumnike, tako da je pri opisih zaželjena pravilna
-slovenščina.
+slovenščina. Ne pozabi tudi na rabo velike začetnice in imena, ki se pišejo
+z veliko (npr. IBM)
 
 
 Začneš na Inventura -> Primerki -> Add.
@@ -78,7 +79,7 @@ Vpiši inventarno številko, ki si jo nalepil.
 Eksponat: polje ima autocomplete. Poišči ustrezni že obstoječi eksponat, če
 je kakšen računalnik tega tipa že v bazi, ali klikni "add" in glej spodaj.
 
-Število delov: v primeru, da se osnovnega dela eksponata z inventarno
+Število delov: v primeru, da se osnovnega dela primerka z inventarno
 številko držijo še dodatni deli, tukaj vpiši število delov.
 
 Serijska številka in leto proizvodnje: vpiši, če je znano.
@@ -90,12 +91,12 @@ in se ne zapira dobro", "pobarvan na zlato".
 Če ima primerek več delov, vpiši, kaj ti deli so.
 
 Donator: če se slučajno po spomniš, kdo je doniral nekaj, dodaj
-donatorja, drugače pusti prazno. Nekateri eksponati imajo nalepljene liste
+donatorja, drugače pusti prazno. Nekateri primerki imajo nalepljene liste
 z opombami, od kje izvirajo.
 
 "Save and add another"
 
-Zavij eksponat v folijo in ga daj k že popisanim.
+Zavij primerek v folijo in ga daj k že popisanim.
 
 
 Polja v Eksponatu:
@@ -107,7 +108,7 @@ Tip: Formalna tovarniška oznaka. Model number, product number, itd. Če ni
 znan oziroma če je ista kot ime, lahko pustiš prazno.
 
 Včasih je dvoumno, kdaj narediti svoj eksponat in kdaj dati več tovarniških
-modelov pod enega. Vodilo naj bo zunanji izgled. Na primer, vse PS/1
+modelov pod enega. Vodilo naj bo zunanji izgled. Na primer, vse primerke PS/1
 enakega zunanjega izgleda sem dal v en eksponat, čeprav se modeli
 razlikujejo zaradi različnih konfiguracij (v tem primeru sodi številka
 konfiguracije pod opis primerka). Po drugi strani sta Performa 400 in LC II
