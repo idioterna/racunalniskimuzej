@@ -107,6 +107,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
+    'wiki',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'muzej.inventura',
@@ -144,5 +145,7 @@ LOGGING = {
         },
     }
 }
+
+WIKI_WORD = r'\w{2,}'
 
 from localsettings import *

@@ -1,0 +1,27 @@
+{% extends 'wiki/view.html' %}
+
+{% load i18n %}
+
+{% block wikinav %}
+
+    <a href="{% url wiki-view-revision page revision %}">{% trans "view content" %}</a>
+    |
+    {% if revision.get_prev %}
+        <a href="{% url wiki-view-diff page revision.get_prev %}">{% trans "previous" %}</a>
+    {% else %}
+        {% trans "previous" %}
+    {% endif %}
+    |
+    {% if revision.get_next %}
+        <a href="{% url wiki-view-diff page revision.get_next %}">{% trans "next" %}</a>
+    {% else %}
+        {% trans "next" %}
+    {% endif %}
+
+{% endblock %}
+
+
+{% block wikitext %}
+    <pre>{{ diff }}</pre>
+{% endblock %}
+

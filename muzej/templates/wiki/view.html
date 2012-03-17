@@ -1,0 +1,58 @@
+{% extends 'wiki/base.html' %}
+
+{% load i18n %}
+
+{% block content %}
+<section>
+  <header>
+    <h1><a href="{{ page.get_absolute_url }}" rel="bookmark">{{ page.name }}</a></h1>
+  </header>
+
+  {% if not page.id %}
+  <p>{% trans "This page does not exist" %}, <a href="{% url wiki-edit-page page %}">{% trans "create it now" %}</a>?</p>
+  {% else %}
+
+  {% if revision.id %}        
+  <p class="nav">
+    {% block wikinav %}
+    <a href="{% url wiki-view-diff page revision %}">{% trans "view changes" %}</a>
+    |
+    {% if revision.get_prev %}
+    <a href="{{ revision.get_prev.get_absolute_url }}">{% trans "previous" %}</a>
+    {% else %}
+    {% trans "previous" %}
+    {% endif %}
+    |
+    {% if revision.get_next %}      
+    <a href="{{ revision.get_next.get_absolute_url }}">{% trans "next" %}</a>
+    {% else %}
+    {% trans "next" %}
+    {% endif %}
+    {% endblock %}
+  </p>
+
+  <article>
+    <p>
+      {% block wikitext %}
+      {{ revision.rendered|safe }}
+      {% endblock %}
+    </p>
+  </article>
+{% trans "revision" %}: {{ revision.counter }}, {% trans "edited" %}: {{ revision.date|date:'N j, Y, P' }} {% trans "by" %}: {{ revision.get_editor_name }}<br/>
+{% else %}
+{% trans "This page has no revisions" %}.
+{% endif %}
+{% endif %}
+</section>
+{% endblock %}
+
+{% block wiki_footer %}
+{% if page.id %}
+{% if not next %}
+<a href="{% url wiki-edit-page page %}">{% trans "Edit" %}</a> |
+{% endif %}
+<a href="{% url wiki-delete-page page %}">{% trans "Delete" %}</a> |
+{% else %}
+<a href="{% url wiki-edit-page page %}">{% trans "Create this page" %}</a> |
+{% endif %}
+{% endblock %}

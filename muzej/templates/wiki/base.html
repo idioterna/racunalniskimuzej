@@ -1,0 +1,23 @@
+{% extends "admin/base_site.html" %}
+{% load i18n %}
+
+{% block title %}
+{% if page.name %}{{ page.name }} | {% endif %}Wiki | Računalniški muzej
+{% endblock %}
+
+{% block extrastyle %}
+<link	rel="stylesheet"
+	href="{{ STATIC_URL }}wiki/css/base.css"
+	media="screen, projection"
+	title="screen style">
+{% endblock extrastyle %}
+
+{% block footer %}
+<footer>
+<a href="{% url wiki.views.index %}">{% trans "List all pages" %}</a> |
+{% block wiki_footer %}{% endblock %}
+{% trans "Powered by" %} 
+<a href="http://github.com/sebasmagri/django-wiki">django-wiki</a>
+</footer>
+{% block bottom_scripts %}{% endblock %}
+{% endblock %}

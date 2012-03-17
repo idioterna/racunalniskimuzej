@@ -15,6 +15,8 @@ urlpatterns = patterns('',
 	url(r'^[vV]/([0-9]+)/?', 'muzej.inventura.views.vhod_short'),
 	url(r'^[iI]/([0-9]+)/?', 'muzej.inventura.views.primerek_short'),
 
+	url(r'^wiki/', include('wiki.urls')),
+
 	# Uncomment the admin/doc line below to enable admin documentation:
 	# url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 

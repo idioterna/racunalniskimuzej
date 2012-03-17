@@ -1,0 +1,22 @@
+{% extends 'wiki/base.html' %}
+
+{% load i18n %}
+
+{% block content %}
+<h1>{% trans "Delete" %} {{ page_name }}</h1>
+
+<p>
+  {% blocktrans %}
+  Please confirm you want to delete {{ page_name }}. This action is irreversible!
+  {% endblocktrans %}
+</p>
+
+<form action="{% url wiki-delete-page page_name %}" method="post">
+  {% csrf_token %}
+  <input type="submit" value='{% trans "Confirm" %}' />
+</form>
+
+<p>
+  {% trans "Or" %} <a href="{% url wiki-view-page page_name %}">{% trans "Go back to the page" %}</a>
+</p>
+{% endblock %}

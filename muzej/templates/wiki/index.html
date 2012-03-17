@@ -1,0 +1,22 @@
+{% extends 'wiki/base.html' %}
+
+{% load i18n %}
+
+{% block content %}
+<h1>{% trans "Index" %}</h1>
+
+{% if pages %}
+<ul>
+  {% for page in pages %}
+  <li><a href="{{ page.get_absolute_url }}">{{ page.name }}</a></li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>
+  {% trans "There are still no pages in your wiki" %}.
+</p>
+<p>
+  {% trans "You could start" %} <a href="{% url wiki-edit-page "NewPage" %}">{% trans "creating a new page" %}</a>
+</p>
+{% endif %}
+{% endblock %}
