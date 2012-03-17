@@ -146,6 +146,6 @@ LOGGING = {
     }
 }
 
-WIKI_WORD = r'\w{2,}'
+WIKI_WORD = r'\w+[\w ]*\w+'
 
 from localsettings import *
