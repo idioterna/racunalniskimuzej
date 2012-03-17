@@ -148,4 +148,6 @@ LOGGING = {
 
 WIKI_WORD = r'\w+[\w ]*\w+'
 
+LOGIN_URL = '/'
+
 from localsettings import *
