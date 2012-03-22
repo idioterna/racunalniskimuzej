@@ -16,7 +16,7 @@ class EksponatAdmin(ajax_select.admin.AjaxSelectAdmin):
 
 	list_display = ('ime', 'tip', 'proizvajalec', 'leto_proizvodnje', 'st_primerkov')
 
-	list_filter = ('proizvajalec',)
+	list_filter = ('kategorija', 'proizvajalec')
 
 	search_fields = ('ime', 'tip')
 
