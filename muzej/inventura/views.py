@@ -1,6 +1,7 @@
 import re
 
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.http import Http404
 from django import forms
@@ -10,6 +11,7 @@ from muzej.inventura.models import Vhod, Primerek, Lokacija
 def root(request):
 	return redirect('/admin/')
 
+@login_required
 def vhod(request, id):
 	vhod = Vhod.objects.get(pk=id)
 	context = {
@@ -17,6 +19,7 @@ def vhod(request, id):
 		}
 	return render(request, 'vhod.html', context)
 
+@login_required
 def vhod_short(request, id):
 	try:
 		vhod = Vhod.objects.get(pk=id)
@@ -24,6 +27,7 @@ def vhod_short(request, id):
 		raise Http404
 	return redirect(vhod)
 
+@login_required
 def primerek_short(request, id):
 	try:
 		primerek = Primerek.objects.get(pk=id)
@@ -35,6 +39,7 @@ class PremikForm(forms.Form):
 	zapisnik = forms.CharField(widget=forms.Textarea)
 	lokacija = forms.ModelChoiceField(queryset=Lokacija.objects.all())
 
+@login_required
 def premik(request):
 	if request.method == 'POST':
 		form = PremikForm(request.POST)
