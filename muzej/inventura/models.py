@@ -110,7 +110,7 @@ class Proizvajalec(models.Model):
 	opis = models.TextField(blank=True)
 
 	def __unicode__(self):
-		return "%s, %s" % (self.ime, self.drzava)
+		return self.ime
 
 	class Meta:
 		verbose_name_plural = "Proizvajalci"
