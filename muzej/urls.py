@@ -15,6 +15,8 @@ urlpatterns = patterns('',
 	url(r'^[vV]/([0-9]+)/?', 'muzej.inventura.views.vhod_short'),
 	url(r'^[iI]/([0-9]+)/?', 'muzej.inventura.views.primerek_short'),
 
+	url(r'^premik/', 'muzej.inventura.views.premik'),
+
 	url(r'^wiki/', include('wiki.urls')),
 
 	# Uncomment the admin/doc line below to enable admin documentation:

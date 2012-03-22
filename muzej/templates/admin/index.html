@@ -49,7 +49,7 @@
 
 {% block sidebar %}
 <div id="content-related">
-    <div class="module" id="recent-actions-module">
+    <div class="module" id="wiki-module">
         <h2>{% trans 'Wiki' %}</h2>
 	{% load wiki_pages %}
 	{% get_wiki_pages as wiki_pages %}
@@ -57,6 +57,12 @@
 	  {% for wiki_page in wiki_pages %}
 	  <li><a href="{{ wiki_page.get_absolute_url }}">{{ wiki_page.name }}</a></li>
 	  {% endfor %}
+	</ul>
+    </div>
+    <div class="module" id="actions-module">
+        <h2>{% trans 'Akcije' %}</h2>
+	<ul>
+	  <li><a href="/premik/">Premik primerkov</a></li>
 	</ul>
     </div>
     <div class="module" id="recent-actions-module">
