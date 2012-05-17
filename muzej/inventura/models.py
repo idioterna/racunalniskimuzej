@@ -78,6 +78,9 @@ class Vhod(models.Model):
 		return "VH%05d" % (self.id,)
 	stevilka.short_description = u'Številka'
 
+	def __unicode__(self):
+		return self.stevilka()
+
 	def get_absolute_url(self):
 		return "/vhod/%d/" % (self.id,)
 
