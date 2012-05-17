@@ -33,6 +33,8 @@ class PrimerekAdmin(ajax_select.admin.AjaxSelectAdmin):
 	list_filter = ('lokacija',)
 	readonly_fields = ('inventariziral', 'datum_inventarizacije')
 
+	search_fields = ('inventarna_st', 'serijska_st', 'eksponat__ime')
+
 	form = ajax_select.make_ajax_form(models.Primerek, {'eksponat':'eksponat', 'donator':'oseba'})
 
 	def save_model(self, request, obj, form, change):
