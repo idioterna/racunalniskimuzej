@@ -78,6 +78,12 @@ class Vhod(models.Model):
 		return "VH%05d" % (self.id,)
 	stevilka.short_description = u'Številka'
 
+	def inventorizirano(self):
+		if Primerek.objects.filter(vhodni_dokument=self):
+			return "da"
+		else:
+			return ""
+
 	def __unicode__(self):
 		return self.stevilka()
 

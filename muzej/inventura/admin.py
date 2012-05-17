@@ -43,7 +43,7 @@ class PrimerekAdmin(ajax_select.admin.AjaxSelectAdmin):
 		obj.save()
 
 class VhodAdmin(ajax_select.admin.AjaxSelectAdmin):
-	list_display = ('stevilka', 'lastnik', 'razlog', 'prevzel', 'cas_prevzema')
+	list_display = ('stevilka', 'lastnik', 'razlog', 'prevzel', 'cas_prevzema', 'inventorizirano')
 
 	search_fields = ('opis',)
 
