@@ -53,6 +53,13 @@ $ python manage.py runfcgi host=127.0.0.1 port=8801
 TODO
 ====
 
+- Migracija baze s south
+
+- Downloadable JSON dump podatkov, dosegljiv z admin strani.
+
 - Država naj bo ForeignKey. Fixture s spiskom držav.
 
-- Dodaj ime proizvajalca pred tip
+- V prikazu avtomatsko dodaj ime proizvajalca pred tip + south migracija, ki 
+  odstrani ime proizvajalca iz tipa eksponata v bazi.
+
+- Avtomatska kapitalizacija stringov, ki so pisani vsi z malo.
