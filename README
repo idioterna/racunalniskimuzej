@@ -10,17 +10,28 @@
 Kako postaviš inventuro
 =======================
 
+Namesti zahtevane sistemske pakete
+
+# apt-get install python-mysqldb
+
+Namesti inventuro
+
 $ git clone http://www.tablix.org/~avian/git/racunalniskimuzej.git
 $ cd racunalniskimuzej
 
-$ virtualenv .virtualenv
+$ virtualenv --system-site-packages .virtualenv
+
 $ source .virtualenv/bin/activate
-$ pip install -r requirements
+$ pip install -r requirements.txt
 
 $ cd muzej
 $ python manage.py syncdb
 
 For deployment, link static/admin to admin media dir in virtualenv.
+
+Za avtomatsko poganjanje inventure ob rebootu, dodaj to v crontab (crontab -e):
+
+@reboot cd $HOME/racunalniskimuzej/muzej && . ../.virtualenv/bin/activate && python manage.py runfcgi host=127.0.0.1 port=8801
 
 
 Update na deploymentu
@@ -47,7 +58,7 @@ Ponovno poženi
 
 $ python manage.py runfcgi host=127.0.0.1 port=8801
 
-(poglej kaj naredi cron ob rebootu: crontab -l)
+(poglej zgoraj kaj naredi cron ob rebootu)
 
 
 TODO
